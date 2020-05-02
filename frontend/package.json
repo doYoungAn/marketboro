@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/loadable__component": "^5.10.0",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
+    "@types/react-router-dom": "^5.1.5",
     "css-loader": "^3.5.3",
     "html-webpack-plugin": "^4.3.0",
     "node-sass": "^4.14.0",
@@ -26,6 +28,7 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
+    "@loadable/component": "^5.12.0",
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
