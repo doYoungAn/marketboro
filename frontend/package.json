@@ -11,7 +11,11 @@
   "devDependencies": {
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
+    "css-loader": "^3.5.3",
     "html-webpack-plugin": "^4.3.0",
+    "node-sass": "^4.14.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
     "ts-loader": "^7.0.2",
     "ts-node": "^8.9.1",
     "typescript": "^3.8.3",
