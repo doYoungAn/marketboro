@@ -1,5 +1,6 @@
 import { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from 'path';
 
 const Config: Configuration = {
 
@@ -32,7 +33,10 @@ const Config: Configuration = {
     },
 
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.scss']
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.scss'],
+        alias: {
+            "~": path.join(__dirname, './../src')
+        }
     },
 
     plugins: [
