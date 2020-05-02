@@ -12,12 +12,27 @@ const Config: Configuration = {
             {
                 test: /\.ts(x*)$/,
                 loader: 'ts-loader'
+            },
+            {
+                test: /\.(s*)css$/,
+                loaders: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                localIdentName: '[name]__[local]__[hash:base64:5]',
+                            }
+                        }
+                    },
+                    'sass-loader'
+                ]
             }
         ]
     },
 
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.scss']
     },
 
     plugins: [
