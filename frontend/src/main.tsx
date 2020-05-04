@@ -14,7 +14,8 @@ import UIkit from 'uikit/dist/js/uikit.js'
 // loads the Icon plugin
 UIkit.use(Icons);
 
-import 'uikit';
+import 'swiper/css/swiper.min.css';
+
 
 const element = document.getElementById('app');
 
