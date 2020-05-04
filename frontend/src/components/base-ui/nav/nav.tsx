@@ -24,7 +24,9 @@ const Nav: FC<INavProps> = (): JSX.Element => {
                     <li>
                         <NavLink to="/direct">직배송 업체</NavLink>
                     </li>
-                    <li><a href="">업종 찾기</a></li>
+                    <li>
+                        <NavLink to="/business">업종찾기</NavLink>
+                    </li>
                     <li><a href="">지역 찾기</a></li>
                 </ul>
             </div>

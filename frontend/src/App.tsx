@@ -6,6 +6,7 @@ const MainPage = loadable(() => import('~/pages/main'));
 const GoodPage = loadable(() => import(`~/pages/good`));
 const PlanPage = loadable(() => import(`~/pages/plan`));
 const DirectPage = loadable(() => import(`~/pages/direct`));
+const BusinessPage = loadable(() => import(`~/pages/business`));
 
 interface IAppProps {}
 
@@ -22,6 +23,7 @@ const App: FC<IAppProps> = (): JSX.Element => {
         <Route path="/good" component={GoodPage} />
         <Route path="/plan" component={PlanPage} />
         <Route path="/direct" component={DirectPage} />
+        <Route path="/business" component={BusinessPage} />
       </Switch>
     </>
   );
