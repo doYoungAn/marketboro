@@ -18,7 +18,9 @@ const Nav: FC<INavProps> = (): JSX.Element => {
             </div>
             <div className="uk-width-1-2 uk-text-center">
                 <ul className="uk-breadcrumb">
-                    <li><a href="">식봄 기획전</a></li>
+                    <li>
+                        <NavLink to="/plan">식봄 기획전</NavLink>
+                    </li>
                     <li>
                         <NavLink to="/direct">직배송 업체</NavLink>
                     </li>
