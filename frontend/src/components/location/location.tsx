@@ -17,6 +17,7 @@ const Location: FC<ILocationProps> = (): JSX.Element => {
           <button className="uk-button uk-button-default uk-position-center-right">다른지역</button>
         </div>
       </div>
+      <hr className="uk-margin-remove"></hr>
     </>
   );
 
