@@ -27,7 +27,9 @@ const Nav: FC<INavProps> = (): JSX.Element => {
                     <li>
                         <NavLink to="/business">업종찾기</NavLink>
                     </li>
-                    <li><a href="">지역 찾기</a></li>
+                    <li>
+                        <NavLink to="/location">지역 찾기</NavLink>
+                    </li>
                 </ul>
             </div>
             <div className="uk-width-1-4 uk-text-center">
