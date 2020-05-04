@@ -6,6 +6,7 @@ import Inquiry from '~/components/base-ui/inquiry';
 import Footer from '~/components/base-ui/footer';
 import Slider from '~/components/slider';
 import Good from '~/components/good';
+import Location from '~/components/location';
 
 interface IMainPageProps extends RouteComponentProps {}
 
@@ -21,6 +22,7 @@ const MainPage: FC<IMainPageProps> = (): JSX.Element => {
         <Header />
         <Nav />
         <Slider />
+        <Location />
 
         <div data-uk-grid>
           <div className="uk-width-1-4">
