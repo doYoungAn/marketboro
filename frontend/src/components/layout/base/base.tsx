@@ -14,7 +14,7 @@ const BaseLayout: FC<IBaseLayoutProps> = ({ children }): JSX.Element => {
 
   return (
     <>
-      <div className="uk-container uk-container-large uk-height-1-1 uk-background-muted" style={{ overflow: 'scroll' }}>
+      <div className="uk-container uk-container-large uk-height-1-1 uk-background-muted uk-padding-remove" style={{ overflow: 'scroll' }}>
         <Header />
         <Nav />
         {children}

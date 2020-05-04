@@ -25,7 +25,7 @@ const MainPage: FC<IMainPageProps> = ({ history }): JSX.Element => {
         <Location />
         <Store />
 
-        <div data-uk-grid>
+        <div data-uk-grid className="uk-padding-small">
           <div className="uk-width-1-4">
             <Good onClick={() => {history.push('/good')}} />
           </div>

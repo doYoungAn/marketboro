@@ -10,7 +10,7 @@ const Footer: FC<IFooterProps> = (): JSX.Element => {
 
   return (
     <>
-		<div data-uk-grid>
+		<div data-uk-grid className="uk-background-primary uk-light uk-padding-small uk-margin-remove">
 			<div data-uk-grid className="uk-width-1-1 uk-margin-top">
 				<div className="uk-width-expand">
 					<button className="uk-button uk-button-default uk-margin-right">이용약관</button>

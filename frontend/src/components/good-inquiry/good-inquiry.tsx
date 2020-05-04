@@ -10,7 +10,7 @@ const GoodInquiry: FC<IGoodInquiryProps> = (): JSX.Element => {
 
   return (
     <>
-      <div data-uk-grid>
+      <div data-uk-grid className="uk-padding-small">
         <div className="uk-width-1-1">
           <div className="uk-card uk-card-default uk-card-body uk-card-small">
           <h1 className="uk-heading-small uk-heading-divider uk-text-large">상품문의</h1>

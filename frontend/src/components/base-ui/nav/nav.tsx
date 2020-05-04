@@ -11,7 +11,7 @@ const Nav: FC<INavProps> = (): JSX.Element => {
 
   return (
     <>
-        <div data-uk-grid className="uk-background-default uk-padding uk-margin-remove">
+        <div data-uk-grid className="uk-background-default uk-padding-small uk-margin-remove">
             <div className="uk-width-1-4 uk-text-center">
                 <span data-uk-icon="menu"></span>
                 전체 카테고리

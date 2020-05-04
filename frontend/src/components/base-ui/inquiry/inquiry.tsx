@@ -10,7 +10,7 @@ const Inquiry: FC<IInquiryProps> = (): JSX.Element => {
 
   return (
     <>
-        <div data-uk-grid>
+        <div data-uk-grid className="uk-padding-small uk-background-default uk-column-1-2">
             <div className="uk-width-1-2">
                 <div data-uk-grid>
                     <div className="uk-width-1-2">

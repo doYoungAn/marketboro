@@ -10,7 +10,7 @@ const DeliveryInformation: FC<IDeliveryInformationProps> = (): JSX.Element => {
 
   return (
     <>
-      <div data-uk-grid>
+      <div data-uk-grid className="uk-padding-small">
         <div className="uk-width-1-1">
           <div className="uk-card uk-card-default uk-card-body uk-card-small">
             <div data-uk-grid className="uk-margin-remove-top">
