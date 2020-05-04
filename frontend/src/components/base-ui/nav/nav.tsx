@@ -1,4 +1,5 @@
 import React, { FC, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 
 interface INavProps {}
 
@@ -18,7 +19,9 @@ const Nav: FC<INavProps> = (): JSX.Element => {
             <div className="uk-width-1-2 uk-text-center">
                 <ul className="uk-breadcrumb">
                     <li><a href="">식봄 기획전</a></li>
-                    <li><a href="">직배송 업체</a></li>
+                    <li>
+                        <NavLink to="/direct">직배송 업체</NavLink>
+                    </li>
                     <li><a href="">업종 찾기</a></li>
                     <li><a href="">지역 찾기</a></li>
                 </ul>
