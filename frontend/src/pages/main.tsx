@@ -15,7 +15,7 @@ const MainPage: FC<IMainPageProps> = (): JSX.Element => {
 
   return (
     <>
-      <div className="uk-container-large uk-height-1-1 uk-background-muted">
+      <div className="uk-container uk-container-large uk-height-1-1 uk-background-muted">
         <Header />
         <Nav />
         <Inquiry />
