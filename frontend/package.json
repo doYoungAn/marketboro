@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config ./webpack/webpack.config.base.ts"
+    "dev": "webpack-dev-server --config ./webpack/webpack.config.dev.ts"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +14,8 @@
     "@types/react-dom": "^16.9.7",
     "@types/react-router-dom": "^5.1.5",
     "@types/swiper": "^5.3.0",
+    "@types/webpack-dev-server": "^3.10.1",
+    "@types/webpack-merge": "^4.1.5",
     "css-loader": "^3.5.3",
     "html-webpack-plugin": "^4.3.0",
     "node-sass": "^4.14.0",

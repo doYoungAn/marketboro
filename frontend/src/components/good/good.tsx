@@ -1,8 +1,10 @@
 import React, { FC, useEffect } from 'react';
 
-interface IGoodProps {}
+interface IGoodProps {
+  onClick: () => void
+}
 
-const Good: FC<IGoodProps> = (): JSX.Element => {
+const Good: FC<IGoodProps> = ({ onClick }): JSX.Element => {
   
   useEffect(() => {
 
@@ -10,7 +12,7 @@ const Good: FC<IGoodProps> = (): JSX.Element => {
 
   return (
     <>
-      <div className="uk-card uk-card-default">
+      <div className="uk-card uk-card-default" onClick={() => {onClick()}}>
         <div className="uk-card-media-top">
           <img src="https://vader-prod.s3.amazonaws.com/1571422973-1562867102-free-rn-5-mens-running-shoe-rbzmbn-1571422966.jpg" alt=""/>
         </div>

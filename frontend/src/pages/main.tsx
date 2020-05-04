@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import BaseLayout from '~/components/layout/base';
 import Header from '~/components/base-ui/header';
 import Nav from '~/components/base-ui/nav';
 import Inquiry from '~/components/base-ui/inquiry';
@@ -11,7 +12,7 @@ import Store from '~/components/store';
 
 interface IMainPageProps extends RouteComponentProps {}
 
-const MainPage: FC<IMainPageProps> = (): JSX.Element => {
+const MainPage: FC<IMainPageProps> = ({ history }): JSX.Element => {
   
   useEffect(() => {
 
@@ -19,34 +20,29 @@ const MainPage: FC<IMainPageProps> = (): JSX.Element => {
 
   return (
     <>
-      <div className="uk-container uk-container-large uk-height-1-1 uk-background-muted" style={{ overflow: 'scroll' }}>
-        <Header />
-        <Nav />
+      <BaseLayout>
         <Slider />
         <Location />
         <Store />
 
         <div data-uk-grid>
           <div className="uk-width-1-4">
-            <Good />
+            <Good onClick={() => {history.push('/good')}} />
           </div>
           <div className="uk-width-1-4">
-            <Good />
+            <Good onClick={() => {history.push('/good')}} />
           </div>
           <div className="uk-width-1-4">
-            <Good />
+            <Good onClick={() => {history.push('/good')}} />
           </div>
           <div className="uk-width-1-4">
-            <Good />
+            <Good onClick={() => {history.push('/good')}} />
           </div>
           <div className="uk-width-1-4">
-            <Good />
+            <Good onClick={() => {history.push('/good')}} />
           </div>
         </div>
-
-        <Inquiry />
-        <Footer />
-      </div>
+      </BaseLayout>
     </>
   );
 
