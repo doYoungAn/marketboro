@@ -15,9 +15,11 @@ const Vendor: FC<IVendorProps> = ({ vendor }): JSX.Element => {
       <div className="uk-card uk-card-default uk-card-body uk-card-small uk-animation-slide-bottom">
         <h3 className="uk-card-title">{vendor.name}</h3>
         <p>{vendor.description}</p>
-        {vendor.businesses.map((business, index) => (
-          <span key={index} className="uk-badge uk-margin-right uk-margin-bottom">{business.name}</span>
-        ))}
+        <div data-uk-grid className="uk-grid-small uk-padding-small uk-padding-remove-bottom">
+          {vendor.businesses.map((business, index) => (
+            <span key={index} className="uk-badge uk-margin-right">{business.name}</span>
+          ))}
+        </div>
       </div>
     </>
   );
