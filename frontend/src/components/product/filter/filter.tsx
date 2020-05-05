@@ -1,8 +1,30 @@
 import React, { FC, useEffect } from 'react';
 
-interface IProductFilterProps {}
+const filters: { type: ProductFilterType, name: string }[] = [
+  {
+    type: 'detail',
+    name: '상품설명',
+  },
+  {
+    type: 'buy',
+    name: '구매정보',
+  },
+  {
+    type: 'delivery',
+    name: '배송정보',
+  },
+  {
+    type: 'inquiry',
+    name: '상품문의',
+  }
+];
 
-const ProductFilter: FC<IProductFilterProps> = (): JSX.Element => {
+interface IProductFilterProps {
+  selectFilterType: ProductFilterType;
+  onChangeFilter: (type: ProductFilterType) => void;
+}
+
+const ProductFilter: FC<IProductFilterProps> = ({ selectFilterType, onChangeFilter }): JSX.Element => {
   
   useEffect(() => {
 
@@ -13,10 +35,14 @@ const ProductFilter: FC<IProductFilterProps> = (): JSX.Element => {
       <div data-uk-grid className="uk-padding-small">
         <div className="uk-width-1-1">
           <div className="uk-card uk-card-default uk-card-body uk-card-small">
-            <button className="uk-button uk-button-default uk-width-1-4">상품설명</button>
-            <button className="uk-button uk-button-default uk-width-1-4">구매정보</button>
-            <button className="uk-button uk-button-default uk-width-1-4">배송정보</button>
-            <button className="uk-button uk-button-default uk-width-1-4">상품문의</button>
+            {filters.map((filter, index) => (
+              <button
+                key={index}
+                className={`uk-button uk-button-${selectFilterType === filter.type ? 'primary' : 'default'} uk-width-1-4`}
+                onClick={() => {onChangeFilter(filter.type)}}>
+                {filter.name}
+              </button>
+            ))}
           </div>
         </div>
       </div>

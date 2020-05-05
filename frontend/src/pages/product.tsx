@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import BaseLayout from '~/components/layout/base';
 import ProductSummary from '~/components/product/summary';
@@ -12,6 +12,8 @@ interface IGoodPageProps extends RouteComponentProps {}
 
 const GoodPage: FC<IGoodPageProps> = (): JSX.Element => {
   
+  const [selectFilterType, setSelectFilterType] = useState<ProductFilterType>('detail');
+
   useEffect(() => {
 
   }, []);
@@ -20,11 +22,15 @@ const GoodPage: FC<IGoodPageProps> = (): JSX.Element => {
     <>
       <BaseLayout>
         <ProductSummary />
-        <ProductFilter />
-        <ProductDetail />
-        <BuyInfo />
-        <DeliveryInfo />
-        <ProductInquiry />
+        <ProductFilter selectFilterType={selectFilterType} onChangeFilter={(type: ProductFilterType) => {setSelectFilterType(type)}} />
+        {
+          {
+            'detail':   <ProductDetail />,
+            'buy':      <BuyInfo />,
+            'delivery': <DeliveryInfo />,
+            'inquiry':  <ProductInquiry />
+          }[selectFilterType]
+        }
       </BaseLayout>
     </>
   );

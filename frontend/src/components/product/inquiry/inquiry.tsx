@@ -10,7 +10,7 @@ const ProductInquiry: FC<IProductInquiryProps> = (): JSX.Element => {
 
   return (
     <>
-      <div data-uk-grid className="uk-padding-small">
+      <div data-uk-grid className="uk-padding-small uk-animation-slide-bottom">
         <div className="uk-width-1-1">
           <div className="uk-card uk-card-default uk-card-body uk-card-small">
           <h1 className="uk-heading-small uk-heading-divider uk-text-large">상품문의</h1>
