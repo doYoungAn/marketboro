@@ -19,6 +19,19 @@ class ApiService {
         }
     }
 
+    public async getVendors(): Promise<IVendor[]> {
+        try {
+            const response: AxiosResponse<{ success: boolean, vendors: IVendor[], error?: any }> = await axios.get(`${this.endPoint}/api/v1/vendor`);
+            if (response.data.success) {
+                return response.data.vendors;
+            } else {
+                return Promise.reject(response.data.error);
+            }
+        } catch(e) {
+            return Promise.reject(e);
+        }
+    }
+
 }
 
 const apiService = new ApiService();
