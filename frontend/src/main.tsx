@@ -16,6 +16,8 @@ UIkit.use(Icons);
 
 import 'swiper/css/swiper.min.css';
 
+import '~/services/api.service';
+
 
 const element = document.getElementById('app');
 
