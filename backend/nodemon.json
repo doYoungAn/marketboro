@@ -1,0 +1,7 @@
+{
+    "verbose": true,
+    "watch": ["./src"],
+    "ext": "ts",
+    "exec": "ts-node --files -P ./tsconfig.json ./src/server.ts"
+}
+  
