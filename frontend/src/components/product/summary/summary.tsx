@@ -1,8 +1,8 @@
 import React, { FC, useEffect } from 'react';
 
-interface IGoodPreviewProps {}
+interface ISummaryProps {}
 
-const GoodPreview: FC<IGoodPreviewProps> = (): JSX.Element => {
+const Summary: FC<ISummaryProps> = (): JSX.Element => {
   
   useEffect(() => {
 
@@ -59,4 +59,4 @@ const GoodPreview: FC<IGoodPreviewProps> = (): JSX.Element => {
 
 };
 
-export default GoodPreview;
+export default Summary;

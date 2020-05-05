@@ -1,8 +1,8 @@
 import React, { FC, useEffect } from 'react';
 
-interface IGoodFilterProps {}
+interface IProductFilterProps {}
 
-const GoodFilter: FC<IGoodFilterProps> = (): JSX.Element => {
+const ProductFilter: FC<IProductFilterProps> = (): JSX.Element => {
   
   useEffect(() => {
 
@@ -25,4 +25,4 @@ const GoodFilter: FC<IGoodFilterProps> = (): JSX.Element => {
 
 };
 
-export default GoodFilter;
+export default ProductFilter;

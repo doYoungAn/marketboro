@@ -1,8 +1,8 @@
 import React, { FC, useEffect } from 'react';
 
-interface IBuyInformationProps {}
+interface IBuyInfoProps {}
 
-const BuyInformation: FC<IBuyInformationProps> = (): JSX.Element => {
+const BuyInfo: FC<IBuyInfoProps> = (): JSX.Element => {
   
   useEffect(() => {
 
@@ -119,4 +119,4 @@ const BuyInformation: FC<IBuyInformationProps> = (): JSX.Element => {
 
 };
 
-export default BuyInformation;
+export default BuyInfo;

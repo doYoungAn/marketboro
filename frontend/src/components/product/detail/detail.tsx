@@ -1,8 +1,8 @@
 import React, { FC, useEffect } from 'react';
 
-interface IGoodDetailProps {}
+interface IProductDetailProps {}
 
-const GoodDetail: FC<IGoodDetailProps> = (): JSX.Element => {
+const ProductDetail: FC<IProductDetailProps> = (): JSX.Element => {
   
   useEffect(() => {
 
@@ -24,4 +24,4 @@ const GoodDetail: FC<IGoodDetailProps> = (): JSX.Element => {
 
 };
 
-export default GoodDetail;
+export default ProductDetail;

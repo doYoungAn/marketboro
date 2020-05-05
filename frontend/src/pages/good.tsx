@@ -1,12 +1,12 @@
 import React, { FC, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import BaseLayout from '~/components/layout/base';
-import GoodPreview from '~/components/product/good-preview';
-import GoodFilter from '~/components/product/good-filter';
-import GoodDetail from '~/components/product/good-detail';
-import BuyInformation from '~/components/product/buy-information';
-import DeliveryInformation from '~/components/product/delivery-information';
-import GoodInquiry from '~/components/product/good-inquiry';
+import ProductSummary from '~/components/product/summary';
+import ProductFilter from '~/components/product/filter';
+import ProductDetail from '~/components/product/detail';
+import BuyInfo from '~/components/product/buy-info';
+import DeliveryInfo from '~/components/product/delivery-info';
+import ProductInquiry from '~/components/product/inquiry';
 
 interface IGoodPageProps extends RouteComponentProps {}
 
@@ -19,12 +19,12 @@ const GoodPage: FC<IGoodPageProps> = (): JSX.Element => {
   return (
     <>
       <BaseLayout>
-        <GoodPreview />
-        <GoodFilter />
-        <GoodDetail />
-        <BuyInformation />
-        <DeliveryInformation />
-        <GoodInquiry />
+        <ProductSummary />
+        <ProductFilter />
+        <ProductDetail />
+        <BuyInfo />
+        <DeliveryInfo />
+        <ProductInquiry />
       </BaseLayout>
     </>
   );

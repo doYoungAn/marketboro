@@ -1,8 +1,8 @@
 import React, { FC, useEffect } from 'react';
 
-interface IDeliveryInformationProps {}
+interface IDeliveryInfoProps {}
 
-const DeliveryInformation: FC<IDeliveryInformationProps> = (): JSX.Element => {
+const DeliveryInfo: FC<IDeliveryInfoProps> = (): JSX.Element => {
   
   useEffect(() => {
 
@@ -77,4 +77,4 @@ const DeliveryInformation: FC<IDeliveryInformationProps> = (): JSX.Element => {
 
 };
 
-export default DeliveryInformation;
+export default DeliveryInfo;

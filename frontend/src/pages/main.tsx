@@ -6,7 +6,7 @@ import Nav from '~/components/base-ui/nav';
 import Inquiry from '~/components/base-ui/inquiry';
 import Footer from '~/components/base-ui/footer';
 import Slider from '~/components/slider';
-import Good from '~/components/product/good';
+import ProductItem from '~/components/product/item';
 import Location from '~/components/location';
 import Store from '~/components/store';
 
@@ -27,19 +27,19 @@ const MainPage: FC<IMainPageProps> = ({ history }): JSX.Element => {
 
         <div data-uk-grid className="uk-padding-small">
           <div className="uk-width-1-4">
-            <Good onClick={() => {history.push('/good')}} />
+            <ProductItem onClick={() => {history.push('/ProductItem')}} />
           </div>
           <div className="uk-width-1-4">
-            <Good onClick={() => {history.push('/good')}} />
+            <ProductItem onClick={() => {history.push('/ProductItem')}} />
           </div>
           <div className="uk-width-1-4">
-            <Good onClick={() => {history.push('/good')}} />
+            <ProductItem onClick={() => {history.push('/ProductItem')}} />
           </div>
           <div className="uk-width-1-4">
-            <Good onClick={() => {history.push('/good')}} />
+            <ProductItem onClick={() => {history.push('/ProductItem')}} />
           </div>
           <div className="uk-width-1-4">
-            <Good onClick={() => {history.push('/good')}} />
+            <ProductItem onClick={() => {history.push('/ProductItem')}} />
           </div>
         </div>
       </BaseLayout>

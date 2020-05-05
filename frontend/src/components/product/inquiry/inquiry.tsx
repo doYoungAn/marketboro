@@ -1,8 +1,8 @@
 import React, { FC, useEffect } from 'react';
 
-interface IGoodInquiryProps {}
+interface IProductInquiryProps {}
 
-const GoodInquiry: FC<IGoodInquiryProps> = (): JSX.Element => {
+const ProductInquiry: FC<IProductInquiryProps> = (): JSX.Element => {
   
   useEffect(() => {
 
@@ -42,4 +42,4 @@ const GoodInquiry: FC<IGoodInquiryProps> = (): JSX.Element => {
 
 };
 
-export default GoodInquiry;
+export default ProductInquiry;

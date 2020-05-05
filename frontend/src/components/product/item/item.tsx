@@ -1,10 +1,10 @@
 import React, { FC, useEffect } from 'react';
 
-interface IGoodProps {
+interface IProductItemProps {
   onClick: () => void
 }
 
-const Good: FC<IGoodProps> = ({ onClick }): JSX.Element => {
+const ProductItem: FC<IProductItemProps> = ({ onClick }): JSX.Element => {
   
   useEffect(() => {
 
@@ -29,4 +29,4 @@ const Good: FC<IGoodProps> = ({ onClick }): JSX.Element => {
 
 };
 
-export default Good;
+export default ProductItem;
