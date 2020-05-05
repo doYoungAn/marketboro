@@ -6,7 +6,7 @@ import Nav from '~/components/base-ui/nav';
 import Inquiry from '~/components/base-ui/inquiry';
 import Footer from '~/components/base-ui/footer';
 import Slider from '~/components/slider';
-import Good from '~/components/good';
+import Good from '~/components/product/good';
 import Location from '~/components/location';
 import Store from '~/components/store';
 

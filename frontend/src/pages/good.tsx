@@ -1,12 +1,12 @@
 import React, { FC, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import BaseLayout from '~/components/layout/base';
-import GoodPreview from '~/components/good-preview';
-import GoodFilter from '~/components/good-filter';
-import GoodDetail from '~/components/good-detail';
-import BuyInformation from '~/components/buy-information';
-import DeliveryInformation from '~/components/delivery-information';
-import GoodInquiry from '~/components/good-inquiry';
+import GoodPreview from '~/components/product/good-preview';
+import GoodFilter from '~/components/product/good-filter';
+import GoodDetail from '~/components/product/good-detail';
+import BuyInformation from '~/components/product/buy-information';
+import DeliveryInformation from '~/components/product/delivery-information';
+import GoodInquiry from '~/components/product/good-inquiry';
 
 interface IGoodPageProps extends RouteComponentProps {}
 
