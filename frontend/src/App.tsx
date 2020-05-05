@@ -21,7 +21,7 @@ const App: FC<IAppProps> = (): JSX.Element => {
     <>
       <Switch>
         <Route path="/main" component={MainPage} />
-        <Route path="/product" component={ProductPage} />
+        <Route path="/product/:productId" component={ProductPage} />
         <Route path="/plan" component={PlanPage} />
         <Route path="/direct" component={DirectPage} />
         <Route path="/business" component={BusinessPage} />

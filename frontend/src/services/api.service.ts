@@ -32,6 +32,32 @@ class ApiService {
         }
     }
 
+    public async getProductById(productId: number): Promise<any> {
+        try {
+            const response = await axios.get(`${this.endPoint}/api/v1/product/${productId}`);
+            if (response.data.success) {
+                return response.data.product;
+            } else {
+                return Promise.reject(response.data.error);
+            }
+        } catch(e) {
+            return Promise.reject(e);
+        }
+    }
+
+    public async getProducts(): Promise<any[]> {
+        try {
+            const response = await axios.get(`${this.endPoint}/api/v1/product`);
+            if (response.data.success) {
+                return response.data.products;
+            } else {
+                return Promise.reject(response.data.error);
+            }
+        } catch(e) {
+            return Promise.reject(e);
+        }
+    }
+
 }
 
 const apiService = new ApiService();
