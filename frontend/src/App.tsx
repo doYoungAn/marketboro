@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import loadable from '@loadable/component';
 
 const MainPage = loadable(() => import('~/pages/main'));
-const GoodPage = loadable(() => import(`~/pages/good`));
+const ProductPage = loadable(() => import(`~/pages/product`));
 const PlanPage = loadable(() => import(`~/pages/plan`));
 const DirectPage = loadable(() => import(`~/pages/direct`));
 const BusinessPage = loadable(() => import(`~/pages/business`));
@@ -21,7 +21,7 @@ const App: FC<IAppProps> = (): JSX.Element => {
     <>
       <Switch>
         <Route path="/main" component={MainPage} />
-        <Route path="/good" component={GoodPage} />
+        <Route path="/product" component={ProductPage} />
         <Route path="/plan" component={PlanPage} />
         <Route path="/direct" component={DirectPage} />
         <Route path="/business" component={BusinessPage} />

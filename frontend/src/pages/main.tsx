@@ -27,19 +27,19 @@ const MainPage: FC<IMainPageProps> = ({ history }): JSX.Element => {
 
         <div data-uk-grid className="uk-padding-small">
           <div className="uk-width-1-4">
-            <ProductItem onClick={() => {history.push('/ProductItem')}} />
+            <ProductItem onClick={() => {history.push('/product')}} />
           </div>
           <div className="uk-width-1-4">
-            <ProductItem onClick={() => {history.push('/ProductItem')}} />
+            <ProductItem onClick={() => {history.push('/product')}} />
           </div>
           <div className="uk-width-1-4">
-            <ProductItem onClick={() => {history.push('/ProductItem')}} />
+            <ProductItem onClick={() => {history.push('/product')}} />
           </div>
           <div className="uk-width-1-4">
-            <ProductItem onClick={() => {history.push('/ProductItem')}} />
+            <ProductItem onClick={() => {history.push('/product')}} />
           </div>
           <div className="uk-width-1-4">
-            <ProductItem onClick={() => {history.push('/ProductItem')}} />
+            <ProductItem onClick={() => {history.push('/product')}} />
           </div>
         </div>
       </BaseLayout>
