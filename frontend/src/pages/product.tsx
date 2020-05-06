@@ -38,8 +38,8 @@ const GoodPage: FC<IGoodPageProps> = ({ match }): JSX.Element => {
         {
           {
             'detail':   <ProductDetail product={product} />,
-            'buy':      <BuyInfo />,
-            'delivery': <DeliveryInfo />,
+            'buy':      <BuyInfo product={product} />,
+            'delivery': <DeliveryInfo product={product} />,
             'inquiry':  <ProductInquiry />
           }[selectFilterType]
         }

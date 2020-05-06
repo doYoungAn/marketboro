@@ -1,9 +1,12 @@
 import React, { FC, useEffect, useState } from 'react';
 import _api from '~/services/api.service';
 
-interface IStoreProps {}
+interface IStoreProps {
+  vendorId: number;
+  onToggleVendor: (vendorId: number) => void;
+}
 
-const Store: FC<IStoreProps> = (): JSX.Element => {
+const Store: FC<IStoreProps> = ({ vendorId, onToggleVendor }): JSX.Element => {
   
   const [vendors, setVendors] = useState<IVendor[]>([]);
 
@@ -11,6 +14,7 @@ const Store: FC<IStoreProps> = (): JSX.Element => {
     (async () => {
       try {
         const newVendors = await _api.getVendors([]);
+        console.log(newVendors)
         setVendors(newVendors);
       } catch(e) {
 
@@ -28,7 +32,7 @@ const Store: FC<IStoreProps> = (): JSX.Element => {
           <div data-uk-grid className="uk-child-width-1-6 uk-grid-small uk-padding-small">
             {vendors.map((vendor, index) => (
               <div key={index}>
-                <button className="uk-button uk-button-default">{vendor.name}</button>
+                <button className={`uk-button uk-button-${vendorId === vendor.id ? 'primary' : 'default'}`} onClick={() => {onToggleVendor(vendor.id)}}>{vendor.name}</button>
               </div>
             ))}
           </div>

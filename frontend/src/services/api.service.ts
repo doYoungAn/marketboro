@@ -57,9 +57,9 @@ class ApiService {
         }
     }
 
-    public async getProducts(): Promise<IProduct[]> {
+    public async getProducts(vendorId: number): Promise<IProduct[]> {
         try {
-            const response: AxiosResponse<IResponse> = await axios.get(`${this.endPoint}/api/v1/product`);
+            const response: AxiosResponse<IResponse> = await axios.get(`${this.endPoint}/api/v1/product?vendorId=${vendorId}`);
             if (response.data.success) {
                 return response.data.products;
             } else {

@@ -8,11 +8,11 @@ export const Get = async (req: Request, res: Response) => {
             success: true,
             vendors: [
                 TempVendor,
-                TempVendor,
-                TempVendor,
-                TempVendor,
-                TempVendor,
-                TempVendor,
+                { ...TempVendor, id: 1001 },
+                { ...TempVendor, id: 1002 },
+                { ...TempVendor, id: 1003 },
+                { ...TempVendor, id: 1004 },
+                { ...TempVendor, id: 1005 },
             ]
         };
         res.status(200).send(sendData);

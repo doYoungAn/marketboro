@@ -1,8 +1,10 @@
 import React, { FC, useEffect } from 'react';
 
-interface IBuyInfoProps {}
+interface IBuyInfoProps {
+  product: IProduct
+}
 
-const BuyInfo: FC<IBuyInfoProps> = (): JSX.Element => {
+const BuyInfo: FC<IBuyInfoProps> = ({ product }): JSX.Element => {
   
   useEffect(() => {
 
@@ -16,12 +18,12 @@ const BuyInfo: FC<IBuyInfoProps> = (): JSX.Element => {
             <h1 className="uk-heading-small uk-heading-divider uk-text-large">반품 / 교환정보</h1>
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">판매자명</div>
-              <div className="uk-width-expand">동서산업</div>
+              <div className="uk-width-expand">{product.vendor.name}</div>
             </div>
             <hr className="uk-margin-remove" />
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">고객문의 대표번호</div>
-              <div className="uk-width-expand">010-7356-9199</div>
+              <div className="uk-width-expand">{product.vendor.phone}</div>
             </div>
             <hr className="uk-margin-remove" />
             <div data-uk-grid className="uk-margin-remove-top">
@@ -89,27 +91,27 @@ const BuyInfo: FC<IBuyInfoProps> = (): JSX.Element => {
             <h1 className="uk-heading-small uk-heading-divider uk-text-large">판매자정보</h1>
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">판매자 상호</div>
-              <div className="uk-width-expand">동서산업</div>
+              <div className="uk-width-expand">{product.seller.name}</div>
             </div>
             <hr className="uk-margin-remove" />
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">사업장 소재지</div>
-              <div className="uk-width-expand">대전 대덕구 평촌1길 37 (신탄진동, 미주산업(주)) 신탄진동</div>
+              <div className="uk-width-expand">{product.seller.place}</div>
             </div>
             <hr className="uk-margin-remove" />
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">연락처</div>
-              <div className="uk-width-expand">010-7356-9199</div>
+              <div className="uk-width-expand">{product.seller.phone}</div>
             </div>
             <hr className="uk-margin-remove" />
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">사업장 등록번호</div>
-              <div className="uk-width-expand">317-81-16544</div>
+              <div className="uk-width-expand">{product.seller.companyRegistrationNumber}</div>
             </div>
             <hr className="uk-margin-remove" />
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">통신판매 신고번호</div>
-              <div className="uk-width-expand">제2020-대전대덕-0032호</div>
+              <div className="uk-width-expand">{product.seller.mailOrderReportNumber}</div>
             </div>
           </div>
         </div>

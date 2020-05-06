@@ -13,6 +13,10 @@ const Summary: FC<ISummaryProps> = ({ product }): JSX.Element => {
 
   }, []);
 
+  const minusQuantity = (): void => {
+    quantity > 1 ? setQuantity(quantity - 1) : alert('수량은 1 이상이여야 합니다.');
+  };
+
   return (
     <>
       <div data-uk-grid className="uk-padding-small">
@@ -42,7 +46,7 @@ const Summary: FC<ISummaryProps> = ({ product }): JSX.Element => {
               <hr/>
               <div className="uk-flex uk-flex-between">
                 <div className="uk-flex">
-                  <button className="uk-button uk-button-default" onClick={() => {setQuantity(quantity - 1)}}>-</button>
+                  <button className="uk-button uk-button-default" onClick={() => {minusQuantity()}}>-</button>
                   <button className="uk-button uk-button-default">{quantity}</button>
                   <button className="uk-button uk-button-default" onClick={() => {setQuantity(quantity + 1)}}>+</button>
                 </div>

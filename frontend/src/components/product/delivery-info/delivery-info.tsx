@@ -1,8 +1,10 @@
 import React, { FC, useEffect } from 'react';
 
-interface IDeliveryInfoProps {}
+interface IDeliveryInfoProps {
+  product: IProduct;
+}
 
-const DeliveryInfo: FC<IDeliveryInfoProps> = (): JSX.Element => {
+const DeliveryInfo: FC<IDeliveryInfoProps> = ({ product }): JSX.Element => {
   
   useEffect(() => {
 
@@ -15,47 +17,47 @@ const DeliveryInfo: FC<IDeliveryInfoProps> = (): JSX.Element => {
           <div className="uk-card uk-card-default uk-card-body uk-card-small">
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">배송유형</div>
-              <div className="uk-width-expand">직배송</div>
+              <div className="uk-width-expand">{product.delivery.type}</div>
             </div>
             <hr className="uk-margin-remove" />
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">배송문의</div>
-              <div className="uk-width-expand">10,000원 (100,000원 이상 구매시)</div>
+              <div className="uk-width-expand">{product.delivery.inquiry}</div>
             </div>
             <hr className="uk-margin-remove" />
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">주문마감시간</div>
-              <div className="uk-width-expand">오후 5:00 까지</div>
+              <div className="uk-width-expand">{product.delivery.orderClose}</div>
             </div>
             <hr className="uk-margin-remove" />
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">배송기간</div>
-              <div className="uk-width-expand">평균 1일 소요</div>
+              <div className="uk-width-expand">{product.delivery.period}</div>
             </div>
             <hr className="uk-margin-remove" />
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">배송요일</div>
-              <div className="uk-width-expand">월,화,수,목,금,토</div>
+              <div className="uk-width-expand">{product.delivery.day}</div>
             </div>
             <hr className="uk-margin-remove" />
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">배송시간</div>
-              <div className="uk-width-expand">오전 2:00 ~ 오후 4:00까지</div>
+              <div className="uk-width-expand">{product.delivery.time}</div>
             </div>
             <hr className="uk-margin-remove" />
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">출고지</div>
-              <div className="uk-width-expand">경기 남양주시 진전읍 금강로928번길 17 (내곡리) 동서산업</div>
+              <div className="uk-width-expand">{product.delivery.place}</div>
             </div>
             <hr className="uk-margin-remove" />
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">배송정보</div>
-              <div className="uk-width-expand">배송지역이나 재고 유무에 따라 배송시간이 늦어 질 수 있습니다.</div>
+              <div className="uk-width-expand">{product.delivery.description}</div>
             </div>
             <hr className="uk-margin-remove" />
             <div data-uk-grid className="uk-margin-remove-top">
               <div className="uk-width-1-4">배송지역</div>
-              <div className="uk-width-expand">서울시 (전체) , 경기도 (고양시 일산동구,고양시 일산서구,광주시,구리시,군포시,김포시,남양주시,부천시,성남시 분당구,성남시 수정구,성남시 중원구,수원시 영통구,수원시 장안구,수원시 팔달구,시흥시,안양시 동안구,안양시 만안구,의왕시,의정부시,하남시) , 인천시 (계양구,남동구,동구,미추홀구,부평구,서구,연수구,옹진군,중구)</div>
+              <div className="uk-width-expand">{product.delivery.area}</div>
             </div>
 
             <div className="uk-section uk-section-muted uk-margin-top uk-section-small">

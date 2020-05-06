@@ -11,12 +11,13 @@ interface IMainPageProps extends RouteComponentProps {}
 
 const MainPage: FC<IMainPageProps> = ({ history }): JSX.Element => {
   
+  const [selectVendorId, setSelectVendorId] = useState<number>(1000);
   const [products, setProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
     (async () => {
       try {
-        const newProducts = await _api.getProducts();
+        const newProducts = await _api.getProducts(1000);
         console.log(newProducts);
         setProducts(newProducts);
       } catch(e) {
@@ -30,7 +31,7 @@ const MainPage: FC<IMainPageProps> = ({ history }): JSX.Element => {
       <BaseLayout>
         <Slider />
         <Location />
-        <Store />
+        <Store vendorId={selectVendorId} onToggleVendor={(vendorId) => {setSelectVendorId(vendorId)}} />
         <div data-uk-grid className="uk-padding-small">
           {products.map((product, index) => (
             <div key={index} className="uk-width-1-4">
