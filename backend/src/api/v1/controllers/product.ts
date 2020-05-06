@@ -20,15 +20,23 @@ export const Get = async (req: Request, res: Response) => {
 export const GetList = async (req: Request, res: Response) => {
     try {
         await new Promise((resolve, reject) => setTimeout(() => {resolve()}, 1000 * 2));
-        const sendData = {
-            success: true,
-            products: [
-                TempProduct,
-                TempProduct,
-                TempProduct,
-            ]
-        };
-        res.status(200).send(sendData);
+        if (req.query.vendorId === '1005') {
+            const sendData = {
+                success: true,
+                products: []
+            };
+            res.status(200).send(sendData);
+        } else {
+            const sendData = {
+                success: true,
+                products: [
+                    TempProduct,
+                    TempProduct,
+                    TempProduct,
+                ]
+            };
+            res.status(200).send(sendData);
+        }
     } catch(e) {
         const sendData = {
             success: false,

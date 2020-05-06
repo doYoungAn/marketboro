@@ -7,6 +7,7 @@ import ProductItem from '~/components/product/item';
 import Location from '~/components/location';
 import Store from '~/components/store';
 import Loading from '~/components/base-ui/loading';
+import CustomError from '~/components/base-ui/error';
 
 interface IMainPageProps extends RouteComponentProps {}
 
@@ -61,6 +62,11 @@ const MainPage: FC<IMainPageProps> = ({ history }): JSX.Element => {
               </div>
             ))}
           </div>
+        }
+        {
+          !isLoading && products.length === 0 ?
+          <CustomError text="등록된 상품이 없습니다." /> :
+          void 0
         }
       </BaseLayout>
     </>
