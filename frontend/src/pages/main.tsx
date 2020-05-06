@@ -24,7 +24,7 @@ const MainPage: FC<IMainPageProps> = ({ history }): JSX.Element => {
 
   const getVendors = async () => {
     try {
-      const newVendors = await _api.getVendors([]);
+      const newVendors = await _api.getVendors([], false);
       console.log(newVendors);
       setVendors(newVendors);
       setSelectVendorId(newVendors[0].id);

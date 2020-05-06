@@ -29,11 +29,11 @@ class ApiService {
         }
     }
 
-    public async getVendors(businessId: number[]): Promise<IVendor[]> {
+    public async getVendors(businessId: number[], wait: boolean = true): Promise<IVendor[]> {
         try {
             const prefix: string = 'businessIds[]';
-            const queryString: string = businessId.map((businessId, index) => index < 1 ? `?${prefix}=${businessId}` : `&${prefix}=${businessId}`).join('');
-            const response: AxiosResponse<IResponse> = await axios.get(`${this.endPoint}/api/v1/vendor${queryString}`);
+            const queryString: string = businessId.map((businessId, index) => index < 1 ? `&${prefix}=${businessId}` : `&${prefix}=${businessId}`).join('');
+            const response: AxiosResponse<IResponse> = await axios.get(`${this.endPoint}/api/v1/vendor?wait=${wait}${queryString}`);
             if (response.data.success) {
                 return response.data.vendors;
             } else {

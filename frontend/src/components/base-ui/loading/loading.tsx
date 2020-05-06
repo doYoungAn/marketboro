@@ -10,7 +10,7 @@ const Loading: FC<ILoadingProps> = (): JSX.Element => {
 
   return (
     <>
-      <div data-uk-grid className="uk-padding-small uk-flex uk-flex-center">
+      <div data-uk-grid className="uk-padding-small uk-flex uk-flex-center uk-flex-middle uk-height-large">
         <div data-uk-spinner="ratio: 3"></div>
       </div>
     </>

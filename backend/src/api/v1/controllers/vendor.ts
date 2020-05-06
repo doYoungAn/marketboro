@@ -4,6 +4,9 @@ import TempVendor from './../../../temp/vendor';
 export const Get = async (req: Request, res: Response) => {
     try {
         console.log('req', req.query);
+        if (req.query.wait === 'true') {
+            await new Promise((resolve, reject) => setTimeout(() => {resolve()}, 1000 * 2));
+        }
         const sendData = {
             success: true,
             vendors: [

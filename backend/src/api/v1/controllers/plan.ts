@@ -3,6 +3,7 @@ import TempPlan from './../../../temp/plan';
 
 export const Get = async (req: Request, res: Response) => {
   try {
+    await new Promise((resolve, reject) => setTimeout(() => {resolve()}, 1000 * 2));
     const sendData = {
       success: true,
       plans: [
