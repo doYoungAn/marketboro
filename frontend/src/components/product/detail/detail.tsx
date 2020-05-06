@@ -10,7 +10,7 @@ const ProductDetail: FC<IProductDetailProps> = (): JSX.Element => {
 
   return (
     <>
-      <div data-uk-grid className="uk-padding-small uk-animation-slide-bottom">
+      <div data-uk-grid className="uk-padding-small uk-animation-slide-bottom-small">
         <div className="uk-width-1-1">
           <div className="uk-card uk-card-default uk-card-body uk-card-small">
             <img src="https://s3.ap-northeast-2.amazonaws.com/gred/vendor/580/images/77_1588038488.jpg" alt=""/>

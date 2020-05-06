@@ -1,9 +1,12 @@
 import React, { FC, useEffect, useState } from 'react';
 import _api from '~/services/api.service';
 
-interface IBusinessFilterProps {}
+interface IBusinessFilterProps {
+  selectBusinessIds: number[];
+  onToggleBusiness: (businessId: number) => void;
+}
 
-const BusinessFilter: FC<IBusinessFilterProps> = (): JSX.Element => {
+const BusinessFilter: FC<IBusinessFilterProps> = ({ selectBusinessIds, onToggleBusiness }): JSX.Element => {
 
   const [businesses, setBusinesses] = useState<IBusiness[]>([]);
 
@@ -27,7 +30,7 @@ const BusinessFilter: FC<IBusinessFilterProps> = (): JSX.Element => {
       <div data-uk-grid className="uk-child-width-1-5 uk-grid-small uk-padding-small">
         {businesses.map((business, index) => (
           <div key={index}>
-            <button className="uk-button uk-button-default uk-width-1-1">
+            <button className={`uk-button uk-button-${selectBusinessIds.includes(business.id) ? 'primary' : 'default'} uk-width-1-1`} onClick={() => {onToggleBusiness(business.id)}}>
               <span data-uk-icon="bolt"></span>
               {business.name}
             </button>
