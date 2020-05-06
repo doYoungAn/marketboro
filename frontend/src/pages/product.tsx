@@ -13,6 +13,7 @@ interface IGoodPageProps extends RouteComponentProps<{productId?: string}> {}
 
 const GoodPage: FC<IGoodPageProps> = ({ match }): JSX.Element => {
   
+  const [product, setProduct] = useState<IProduct>(null);
   const [selectFilterType, setSelectFilterType] = useState<ProductFilterType>('detail');
 
   useEffect(() => {
@@ -22,6 +23,7 @@ const GoodPage: FC<IGoodPageProps> = ({ match }): JSX.Element => {
         if (isNaN(productId)) throw('invalid productId');
         const newProduct = await _api.getProductById(productId);
         console.log(newProduct);
+        setProduct(newProduct);
       } catch(e) {
 
       }
@@ -31,11 +33,11 @@ const GoodPage: FC<IGoodPageProps> = ({ match }): JSX.Element => {
   return (
     <>
       <BaseLayout>
-        <ProductSummary />
+        <ProductSummary product={product} />
         <ProductFilter selectFilterType={selectFilterType} onChangeFilter={(type: ProductFilterType) => {setSelectFilterType(type)}} />
         {
           {
-            'detail':   <ProductDetail />,
+            'detail':   <ProductDetail product={product} />,
             'buy':      <BuyInfo />,
             'delivery': <DeliveryInfo />,
             'inquiry':  <ProductInquiry />

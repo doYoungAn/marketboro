@@ -1,9 +1,14 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import Comma from '~/filters/comma';
 
-interface ISummaryProps {}
+interface ISummaryProps {
+  product: IProduct;
+}
 
-const Summary: FC<ISummaryProps> = (): JSX.Element => {
+const Summary: FC<ISummaryProps> = ({ product }): JSX.Element => {
   
+  const [quantity, setQuantity] = useState<number>(1);
+
   useEffect(() => {
 
   }, []);
@@ -14,13 +19,13 @@ const Summary: FC<ISummaryProps> = (): JSX.Element => {
         <div className="uk-width-1-1">
           <div data-uk-grid className="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin">
             <div className="uk-card-media-left uk-cover-container">
-              <img src="https://vader-prod.s3.amazonaws.com/1571422973-1562867102-free-rn-5-mens-running-shoe-rbzmbn-1571422966.jpg" alt="" data-uk-cover />
+              <img src={product ? product.thumbnail : ''} alt="" data-uk-cover />
               <canvas width="600" height="400"></canvas>
             </div>
             <div className="uk-card-body">
-              <h3 className="uk-card-title">[동서산업] 축산 돼지갈비(칠레,냉동,2*3cm,1kg)</h3>
+              <h3 className="uk-card-title">[{product ? product.vendor.name : void 0}] {product ? product.name : void 0}</h3>
               <p>1kg/봉단가/봉</p>
-              <p>17% 5,800원</p>
+              <p>{product ? Math.floor(product.price / product.salePrice * 10) : void 0}% {product ? Comma(product.salePrice) : ''}원</p>
               <hr/>
               <div data-uk-grid className="uk-margin-remove-top">
                 <div className="uk-width-1-4">배송유형</div>
@@ -37,11 +42,11 @@ const Summary: FC<ISummaryProps> = (): JSX.Element => {
               <hr/>
               <div className="uk-flex uk-flex-between">
                 <div className="uk-flex">
-                  <button className="uk-button uk-button-default">-</button>
-                  <button className="uk-button uk-button-default">1</button>
-                  <button className="uk-button uk-button-default">+</button>
+                  <button className="uk-button uk-button-default" onClick={() => {setQuantity(quantity - 1)}}>-</button>
+                  <button className="uk-button uk-button-default">{quantity}</button>
+                  <button className="uk-button uk-button-default" onClick={() => {setQuantity(quantity + 1)}}>+</button>
                 </div>
-                <span>5,800원</span>
+                <span>{product ? Comma(product.salePrice * quantity) : void 0}원</span>
               </div>
               <div className="uk-flex uk-flex-between uk-margin-top">
                 <button className="uk-button uk-button-default">

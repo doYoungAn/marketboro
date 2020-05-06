@@ -1,11 +1,21 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import _api from '~/services/api.service';
 
 interface IStoreProps {}
 
 const Store: FC<IStoreProps> = (): JSX.Element => {
   
-  useEffect(() => {
+  const [vendors, setVendors] = useState<IVendor[]>([]);
 
+  useEffect(() => {
+    (async () => {
+      try {
+        const newVendors = await _api.getVendors();
+        setVendors(newVendors);
+      } catch(e) {
+
+      }
+    })();
   }, []);
 
   return (
@@ -15,12 +25,13 @@ const Store: FC<IStoreProps> = (): JSX.Element => {
           <h4 className="uk-text-large">직배송 - 경기도 부천시</h4>
         </div>
         <div className="uk-width-1-1">
-          <button className="uk-button uk-button-default uk-margin-right uk-margin-bottom">동서산업</button>
-          <button className="uk-button uk-button-default uk-margin-right uk-margin-bottom">주식회사 뉴킹</button>
-          <button className="uk-button uk-button-default uk-margin-right uk-margin-bottom">대명F&C</button>
-          <button className="uk-button uk-button-default uk-margin-right uk-margin-bottom">올바른치킨 닭집닷컴 올식COS</button>
-          <button className="uk-button uk-button-default uk-margin-right uk-margin-bottom">이너피스 양식식자재 (직배)</button>
-          <button className="uk-button uk-button-default uk-margin-right uk-margin-bottom">SP유통(직배송)</button>
+          <div data-uk-grid className="uk-child-width-1-6 uk-grid-small uk-padding-small">
+            {vendors.map((vendor, index) => (
+              <div key={index}>
+                <button className="uk-button uk-button-default">{vendor.name}</button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>
