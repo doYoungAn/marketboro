@@ -10,8 +10,6 @@ interface IResponse {
     plans?: IPlan[];
 }
 
-interface a extends IResponse {}
-
 class ApiService {
 
     private get endPoint(): string {
@@ -31,9 +29,11 @@ class ApiService {
         }
     }
 
-    public async getVendors(): Promise<IVendor[]> {
+    public async getVendors(businessId: number[]): Promise<IVendor[]> {
         try {
-            const response: AxiosResponse<IResponse> = await axios.get(`${this.endPoint}/api/v1/vendor`);
+            const prefix: string = 'businessIds[]';
+            const queryString: string = businessId.map((businessId, index) => index < 1 ? `?${prefix}=${businessId}` : `&${prefix}=${businessId}`).join('');
+            const response: AxiosResponse<IResponse> = await axios.get(`${this.endPoint}/api/v1/vendor${queryString}`);
             if (response.data.success) {
                 return response.data.vendors;
             } else {

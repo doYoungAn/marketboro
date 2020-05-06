@@ -13,7 +13,7 @@ const LocationPage: FC<ILocationPageProps> = (): JSX.Element => {
   useEffect(() => {
     (async () => {
       try {
-        const newVendors = await _api.getVendors();
+        const newVendors = await _api.getVendors([]);
         setVendors(newVendors);
       } catch(e) {
 

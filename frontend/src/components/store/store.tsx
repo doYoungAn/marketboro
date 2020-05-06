@@ -10,7 +10,7 @@ const Store: FC<IStoreProps> = (): JSX.Element => {
   useEffect(() => {
     (async () => {
       try {
-        const newVendors = await _api.getVendors();
+        const newVendors = await _api.getVendors([]);
         setVendors(newVendors);
       } catch(e) {
 
