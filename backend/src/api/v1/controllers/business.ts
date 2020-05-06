@@ -1,11 +1,9 @@
 import { Request, Response } from 'express';
-import { Collection } from 'mongodb';
-import { db } from './../../../db';
+import Business from './../../../models/business';
 
 export const Get = async (req: Request, res: Response) => {
     try {
-        const collection: Collection<IBusiness> = db.collection('businesses');
-        const businesses = await collection.find({}).project({"_id": 0}).toArray();
+        const businesses: IBusiness[] = await Business.getAll();
         const sendData = {
             success: true,
             businesses

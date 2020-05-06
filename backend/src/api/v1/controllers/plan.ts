@@ -1,11 +1,10 @@
 import { Request, Response } from 'express';
-import { db } from './../../../db';
+import Plan from './../../../models/plan';
 
 export const Get = async (req: Request, res: Response) => {
   try {
     await new Promise((resolve, reject) => setTimeout(() => {resolve()}, 1000 * 2));
-    const collection = db.collection('plans');
-    const plans = await collection.find({}).project({"_id": 0}).toArray();
+    const plans: IPlan[] = await Plan.getAll();
     const sendData = {
       success: true,
       plans: [
