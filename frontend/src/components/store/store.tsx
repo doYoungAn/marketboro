@@ -3,23 +3,24 @@ import _api from '~/services/api.service';
 
 interface IStoreProps {
   vendorId: number;
+  vendors: IVendor[];
   onToggleVendor: (vendorId: number) => void;
 }
 
-const Store: FC<IStoreProps> = ({ vendorId, onToggleVendor }): JSX.Element => {
+const Store: FC<IStoreProps> = ({ vendorId, vendors, onToggleVendor }): JSX.Element => {
   
-  const [vendors, setVendors] = useState<IVendor[]>([]);
+  // const [vendors, setVendors] = useState<IVendor[]>([]);
 
   useEffect(() => {
-    (async () => {
-      try {
-        const newVendors = await _api.getVendors([]);
-        console.log(newVendors)
-        setVendors(newVendors);
-      } catch(e) {
+    // (async () => {
+    //   try {
+    //     const newVendors = await _api.getVendors([]);
+    //     console.log(newVendors)
+    //     setVendors(newVendors);
+    //   } catch(e) {
 
-      }
-    })();
+    //   }
+    // })();
   }, []);
 
   return (

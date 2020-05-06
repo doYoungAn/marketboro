@@ -19,6 +19,7 @@ export const Get = async (req: Request, res: Response) => {
 
 export const GetList = async (req: Request, res: Response) => {
     try {
+        await new Promise((resolve, reject) => setTimeout(() => {resolve()}, 1000 * 2));
         const sendData = {
             success: true,
             products: [

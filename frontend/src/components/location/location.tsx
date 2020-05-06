@@ -1,11 +1,13 @@
 import React, { FC, useEffect } from 'react';
 
-interface ILocationProps {}
+interface ILocationProps {
+  onToggleArea: () => void;
+}
 
-const Location: FC<ILocationProps> = (): JSX.Element => {
+const Location: FC<ILocationProps> = ({ onToggleArea }): JSX.Element => {
   
   useEffect(() => {
-
+    onToggleArea();
   }, []);
 
   return (
