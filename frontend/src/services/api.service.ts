@@ -1,5 +1,16 @@
 import axios, { AxiosResponse } from 'axios';
 
+interface IResponse {
+    success: boolean;
+    error?: any;
+    businesses?: IBusiness[];
+    vendors?: IVendor[];
+    product?: IProduct;
+    products?: IProduct[];
+}
+
+interface a extends IResponse {}
+
 class ApiService {
 
     private get endPoint(): string {
@@ -8,7 +19,7 @@ class ApiService {
 
     public async getBusinesses(): Promise<IBusiness[]> {
         try {
-            const response: AxiosResponse<{ success: boolean, businesses?: IBusiness[], error?: any }> = await axios.get(`${this.endPoint}/api/v1/business`);
+            const response: AxiosResponse<IResponse> = await axios.get(`${this.endPoint}/api/v1/business`);
             if (response.data.success) {
                 return response.data.businesses;
             } else {
@@ -21,7 +32,7 @@ class ApiService {
 
     public async getVendors(): Promise<IVendor[]> {
         try {
-            const response: AxiosResponse<{ success: boolean, vendors: IVendor[], error?: any }> = await axios.get(`${this.endPoint}/api/v1/vendor`);
+            const response: AxiosResponse<IResponse> = await axios.get(`${this.endPoint}/api/v1/vendor`);
             if (response.data.success) {
                 return response.data.vendors;
             } else {
@@ -32,9 +43,9 @@ class ApiService {
         }
     }
 
-    public async getProductById(productId: number): Promise<any> {
+    public async getProductById(productId: number): Promise<IProduct> {
         try {
-            const response = await axios.get(`${this.endPoint}/api/v1/product/${productId}`);
+            const response: AxiosResponse<IResponse> = await axios.get(`${this.endPoint}/api/v1/product/${productId}`);
             if (response.data.success) {
                 return response.data.product;
             } else {
@@ -45,9 +56,9 @@ class ApiService {
         }
     }
 
-    public async getProducts(): Promise<any[]> {
+    public async getProducts(): Promise<IProduct[]> {
         try {
-            const response = await axios.get(`${this.endPoint}/api/v1/product`);
+            const response: AxiosResponse<IResponse> = await axios.get(`${this.endPoint}/api/v1/product`);
             if (response.data.success) {
                 return response.data.products;
             } else {
