@@ -1,12 +1,14 @@
 import { Request, Response } from 'express';
-import TempData from './../../../temp/business';
+import { Collection } from 'mongodb';
+import { db } from './../../../db';
 
 export const Get = async (req: Request, res: Response) => {
     try {
-
+        const collection: Collection<IBusiness> = db.collection('business');
+        const businesses = await collection.find({}).project({"_id": 0}).toArray();
         const sendData = {
             success: true,
-            businesses: TempData
+            businesses
         };
         res.status(200).send(sendData);
     } catch(e) {

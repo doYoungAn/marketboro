@@ -11,6 +11,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.6",
+    "@types/mongodb": "^3.5.16",
     "@types/morgan": "^1.9.0",
     "@types/swagger-jsdoc": "^3.0.2",
     "@types/swagger-ui-express": "^4.1.2",
@@ -22,6 +23,7 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "mongodb": "^3.5.7",
     "morgan": "^1.10.0",
     "swagger-jsdoc": "^4.0.0",
     "swagger-ui-express": "^4.1.4"
