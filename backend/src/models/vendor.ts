@@ -22,21 +22,14 @@ class Vendor {
                     }
                 }
             ], async (err, result) => {
-                // console.log(err);
-                // console.log(await result.toArray());
                 if (err) {
                     reject(err);
                 } else {
                     const vendors: IVendor[] = await result.toArray();
                     resolve(vendors);
                 }
-                // const sendData = {
-                //     success: true,
-                //     vendors
-                // };
-                // res.status(200).send(sendData);
             });
-        })
+        });
     }
 
 }

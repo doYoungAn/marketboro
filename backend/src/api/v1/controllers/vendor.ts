@@ -1,12 +1,10 @@
 import { Request, Response } from 'express';
 import Vendor from './../../../models/vendor';
+import utils from './../../../utils';
 
 export const Get = async (req: Request, res: Response) => {
     try {
-        console.log('req', req.query);
-        if (req.query.wait === 'true') {
-            await new Promise((resolve, reject) => setTimeout(() => {resolve()}, 1000 * 2));
-        }
+        if (req.query.wait === 'true') await utils.delay();
         const vendors = await Vendor.getAll();
         const sendData = {
             success: true,

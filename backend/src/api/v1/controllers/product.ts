@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import Product from './../../../models/product';
+import utils from './../../../utils';
 
 export const Get = async (req: Request, res: Response) => {
     try {
@@ -20,7 +21,7 @@ export const Get = async (req: Request, res: Response) => {
 
 export const GetList = async (req: Request, res: Response) => {
     try {
-        await new Promise((resolve, reject) => setTimeout(() => {resolve()}, 1000 * 2));
+        await utils.delay();
         const products = await Product.getByVendorId(0);
         if (req.query.vendorId === '1005') {
             const sendData = {

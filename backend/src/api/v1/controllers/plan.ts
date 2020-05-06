@@ -1,9 +1,10 @@
 import { Request, Response } from 'express';
 import Plan from './../../../models/plan';
+import utils from './../../../utils';
 
 export const Get = async (req: Request, res: Response) => {
   try {
-    await new Promise((resolve, reject) => setTimeout(() => {resolve()}, 1000 * 2));
+    await utils.delay();
     const plans: IPlan[] = await Plan.getAll();
     const sendData = {
       success: true,
