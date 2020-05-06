@@ -23,6 +23,7 @@ const BusinessPage: FC<IBusinessPageProps> = (): JSX.Element => {
     try {
       setIsLoading(true);
       const newVendors = await _api.getVendors(selectBusinessIds);
+      console.log(newVendors);
       setVendors(newVendors);
       setIsLoading(false);
     } catch(e) {

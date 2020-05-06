@@ -1,4 +1,6 @@
 import { Request, Response } from 'express';
+import { Collection } from 'mongodb';
+import { db } from './../../../db';
 import TempVendor from './../../../temp/vendor';
 
 export const Get = async (req: Request, res: Response) => {
@@ -7,18 +9,31 @@ export const Get = async (req: Request, res: Response) => {
         if (req.query.wait === 'true') {
             await new Promise((resolve, reject) => setTimeout(() => {resolve()}, 1000 * 2));
         }
-        const sendData = {
-            success: true,
-            vendors: [
-                TempVendor,
-                { ...TempVendor, id: 1001 },
-                { ...TempVendor, id: 1002 },
-                { ...TempVendor, id: 1003 },
-                { ...TempVendor, id: 1004 },
-                { ...TempVendor, id: 1005 },
-            ]
-        };
-        res.status(200).send(sendData);
+        const collection = db.collection('vendor');
+        collection.aggregate([
+            { "$lookup": {
+                "from": "business",
+                "localField": "businessIds",
+                "foreignField": "id",
+                "as": "businesses"
+             }},
+             {
+                 "$project": {
+                     "_id": 0,
+                     "businessIds": 0,
+                     "businesses._id": 0
+                 }
+             }
+        ], async (err, result) => {
+            console.log(err);
+            console.log(await result.toArray());
+            const vendors = await result.toArray();
+            const sendData = {
+                success: true,
+                vendors
+            };
+            res.status(200).send(sendData);
+        });
     } catch(e) {
         const sendData = {
             success: false,
