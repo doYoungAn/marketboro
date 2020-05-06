@@ -1,6 +1,7 @@
 import express, { Express } from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import morgan from 'morgan';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
 import api from './api';
@@ -34,8 +35,8 @@ class App {
         this._express = express();
         this._express.use(bodyParser.json());
         this._express.use(cors());
+        this._express.use(morgan('dev'));
         this._express.use('/api', api);
-
         const swaggerSpec = swaggerJSDoc(options);
         this._express.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
     }
