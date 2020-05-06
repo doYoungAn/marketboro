@@ -4,7 +4,7 @@ import { db } from './../../../db';
 
 export const Get = async (req: Request, res: Response) => {
     try {
-        const collection: Collection<IBusiness> = db.collection('business');
+        const collection: Collection<IBusiness> = db.collection('businesses');
         const businesses = await collection.find({}).project({"_id": 0}).toArray();
         const sendData = {
             success: true,

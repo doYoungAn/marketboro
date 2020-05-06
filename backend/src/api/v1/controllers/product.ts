@@ -1,11 +1,14 @@
 import { Request, Response } from 'express';
-import TempProduct from './../../../temp/product';
+import { Collection } from 'mongodb';
+import { db } from './../../../db';
 
 export const Get = async (req: Request, res: Response) => {
     try {
+        const collection = db.collection('products');
+        const products = await collection.find({}).project({"_id": 0}).toArray();
         const sendData = {
             success: true,
-            product: TempProduct
+            product: products[0]
         };
         res.status(200).send(sendData);
     } catch(e) {
@@ -20,6 +23,8 @@ export const Get = async (req: Request, res: Response) => {
 export const GetList = async (req: Request, res: Response) => {
     try {
         await new Promise((resolve, reject) => setTimeout(() => {resolve()}, 1000 * 2));
+        const collection = db.collection('products');
+        const products = await collection.find({}).project({"_id": 0}).toArray();
         if (req.query.vendorId === '1005') {
             const sendData = {
                 success: true,
@@ -30,9 +35,9 @@ export const GetList = async (req: Request, res: Response) => {
             const sendData = {
                 success: true,
                 products: [
-                    TempProduct,
-                    TempProduct,
-                    TempProduct,
+                    products[0],
+                    products[0],
+                    products[0],
                 ]
             };
             res.status(200).send(sendData);

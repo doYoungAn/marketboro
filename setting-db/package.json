@@ -1,0 +1,19 @@
+{
+  "name": "setting-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "insert": "ts-node --files ./index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.5.7"
+  },
+  "devDependencies": {
+    "@types/mongodb": "^3.5.16",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
+  }
+}

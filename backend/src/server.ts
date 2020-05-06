@@ -1,5 +1,5 @@
 import App from './app';
-import { connect } from './db';
+import { connect, db } from './db';
 
 App.listening().then(() => {
     console.log('server listening 3000')
