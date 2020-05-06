@@ -7,6 +7,7 @@ interface IResponse {
     vendors?: IVendor[];
     product?: IProduct;
     products?: IProduct[];
+    plans?: IPlan[];
 }
 
 interface a extends IResponse {}
@@ -61,6 +62,19 @@ class ApiService {
             const response: AxiosResponse<IResponse> = await axios.get(`${this.endPoint}/api/v1/product`);
             if (response.data.success) {
                 return response.data.products;
+            } else {
+                return Promise.reject(response.data.error);
+            }
+        } catch(e) {
+            return Promise.reject(e);
+        }
+    }
+
+    public async getPlans(): Promise<IPlan[]> {
+        try {
+            const response: AxiosResponse<IResponse> = await axios.get(`${this.endPoint}/api/v1/plan`);
+            if (response.data.success) {
+                return response.data.plans;
             } else {
                 return Promise.reject(response.data.error);
             }

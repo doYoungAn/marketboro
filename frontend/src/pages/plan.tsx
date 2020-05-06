@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import _api from '~/services/api.service';
 import BaseLayout from '~/components/layout/base';
 
 interface IPlanPageProps extends RouteComponentProps {}
@@ -7,7 +8,14 @@ interface IPlanPageProps extends RouteComponentProps {}
 const PlanPage: FC<IPlanPageProps> = (): JSX.Element => {
   
   useEffect(() => {
+    (async () => {
+      try {
+        const newPlans = await _api.getPlans();
+        console.log(newPlans);
+      } catch(e) {
 
+      }
+    })();
   }, []);
 
   return (
