@@ -3,8 +3,6 @@ import path from 'path';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
-import swaggerUi from 'swagger-ui-express';
-import swaggerJSDoc from 'swagger-jsdoc';
 import api from './api';
 
 class App {
