@@ -5,10 +5,7 @@
     "thumbnail": "https://vader-prod.s3.amazonaws.com/1571422973-1562867102-free-rn-5-mens-running-shoe-rbzmbn-1571422966.jpg",
     "price": 10000,
     "salePrice": 9000,
-    "vendor": {
-      "name": "동서산업",
-      "phone": "010-7356-9199"
-    },
+    "vendorId": 1000,
     "seller": {
       "name": "동서산업",
       "place": "대전 대덕구 평촌1길 37 (신탄진동, 미주산업(주)) 신탄진동",

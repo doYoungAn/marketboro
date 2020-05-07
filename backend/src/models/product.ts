@@ -19,16 +19,44 @@ class Product {
     }
 
     public static async getByVendorId(vendorId: number): Promise<IProduct[]> {
-        try {
+        return new Promise<IProduct[]>((resolve, reject) => {
             const collection: Collection<IProduct> = db.collection(CollectionName.products);
-            const products: IProduct[] = await collection
-                .find({})
-                .project({"_id": 0})
-                .toArray();
-            return products.length > 0 ? [products[0],products[0],products[0],products[0]] : Promise.reject('not found');
-        } catch(e) {
-            return Promise.reject(e);
-        }
+            console.log('vendorId', vendorId)
+            collection.aggregate<IProduct>([
+                {
+                    "$match": {
+                        "vendorId": vendorId
+                    }
+                },
+                {
+                    "$lookup": {
+                        "from": "vendors",
+                        "localField": "vendorId",
+                        "foreignField": "id",
+                        "as": "vendor"
+                    }
+                },
+                {
+                    "$unwind": "$vendor"
+                },
+                {
+                    "$project": {
+                        "vendorId": 0,
+                        "vendor._id": 0,
+                        "vendor.description": 0,
+                        "vendor.businessIds": 0
+                    }
+                }
+            ], async (err, result) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    const product = await result.toArray();
+                    console.log(product);
+                    resolve(product);
+                }
+            });
+        });
     }
 
 }

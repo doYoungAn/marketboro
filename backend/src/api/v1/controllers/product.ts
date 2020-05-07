@@ -22,7 +22,7 @@ export const Get = async (req: Request, res: Response) => {
 export const GetList = async (req: Request, res: Response) => {
     try {
         await utils.delay();
-        const products = await Product.getByVendorId(0);
+        const products = await Product.getByVendorId(1000);
         if (req.query.vendorId === '1005') {
             const sendData = {
                 success: true,
