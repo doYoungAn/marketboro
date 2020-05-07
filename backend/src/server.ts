@@ -1,5 +1,8 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import App from './app';
-import { connect, db } from './db';
+import { connect } from './db';
+
 
 App.listening().then(() => {
     console.log('server listening 3000')
