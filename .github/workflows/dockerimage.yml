@@ -26,17 +26,6 @@ jobs:
       - name: Push Docker image
         run: docker push ${{secrets.DOCKER_USERNAME}}/marketboro
 
-      # - name: create pem file
-      #   env:
-      #     PEM: ${{secrets.EC2_PEM}}
-      #   run: 'echo "$PEM" > doyoung.pem'
-      # - name: pem chmod
-      #   run: chmod 400 doyoung.pem
-      # - name: ls
-      #   run: ls
-      # - name: access ec2
-      #   run: ssh -i "doyoung.pem" ubuntu@ec2-13-124-99-233.ap-northeast-2.compute.amazonaws.com
-
       - name: docker-compose restart
         uses: garygrossgarten/github-action-ssh@release
         with:
