@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "dev": "TS_NODE_PROJECT=\"webpack/tsconfig.webpack.json\" webpack-dev-server --config ./webpack/webpack.config.dev.ts",
+    "dev": "NODE_ENV=development TS_NODE_PROJECT=\"webpack/tsconfig.webpack.json\" webpack-dev-server --config ./webpack/webpack.config.dev.ts",
     "build": "TS_NODE_PROJECT=\"webpack/tsconfig.webpack.json\" webpack --config ./webpack/webpack.config.prod.ts"
   },
   "author": "",

@@ -1,4 +1,4 @@
-import { Configuration } from 'webpack';
+import webpack, { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import Webpackbar from 'webpackbar';
 import path from 'path';
@@ -31,6 +31,9 @@ const Config: Configuration = {
         new HtmlWebpackPlugin({
             template: './public/index.html'
         }),
+        new webpack.DefinePlugin({
+			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+		}),
         new Webpackbar()
     ]
 

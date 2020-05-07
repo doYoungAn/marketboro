@@ -14,7 +14,8 @@ interface IAppProps {}
 const App: FC<IAppProps> = (): JSX.Element => {
   
   useEffect(() => {
-
+    console.log(process.env.NODE_ENV)
+    console.log(process.env.NODE_ENV === 'development')
   }, []);
 
   return (
