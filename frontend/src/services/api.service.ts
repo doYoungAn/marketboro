@@ -13,7 +13,7 @@ interface IResponse {
 class ApiService {
 
     private get endPoint(): string {
-        return 'http://13.124.99.233';
+        return 'http://13.124.99.233:3000';
         // if (process.env.NODE_ENV === 'development') {
         //     return 'http://localhost:3000';
         // } else {
