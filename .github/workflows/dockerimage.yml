@@ -20,5 +20,9 @@ jobs:
         run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USERNAME}}/marketboro
       - name: Push Docker image
         run: docker push ${{secrets.DOCKER_USERNAME}}/marketboro
+      - name: create pem file
+        run: 'echo "$PEM" > doyoung.pem'
+        env:
+          PEM: ${{EC2_PEM}}
       - name: access ec2
         run: ssh -i "doyoung.pem" ubuntu@ec2-13-124-99-233.ap-northeast-2.compute.amazonaws.com
