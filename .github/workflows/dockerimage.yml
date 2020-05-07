@@ -20,3 +20,12 @@ jobs:
       run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USERNAME}}/marketboro
     - name: Push Docker image
       run: docker push ${{secrets.DOCKER_USERNAME}}/marketboro
+
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: ssh
+        run: ssh 192.168.0.199 
