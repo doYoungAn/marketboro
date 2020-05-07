@@ -1,10 +1,19 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import { MongoClient } from 'mongodb';
-import businesses from './businesses.json';
-import vendors from './vendors.json';
-import products from './products.json';
-import plans from './plans.json';
+import businesses from './data/businesses.json';
+import vendors from './data/vendors.json';
+import products from './data/products.json';
+import plans from './data/plans.json';
 
-MongoClient.connect('mongodb://root:rootpassword@13.124.99.233:27017', { useUnifiedTopology: true }, (err, client) => {
+const config = {
+    user: process.env.MONGODB_USER,
+    password: process.env.MONGODB_PASSWORD,
+    url: process.env.MONGODB_URL,
+    port: parseInt(process.env.MONGODB_PORT as string)
+}
+
+MongoClient.connect(`mongodb://${config.user}:${config.password}@${config.url}:${config.port}`, { useUnifiedTopology: true }, (err, client) => {
     if (err) {
         return
     } else {
