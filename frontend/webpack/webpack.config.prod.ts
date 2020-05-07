@@ -1,13 +1,13 @@
-import { Configuration } from 'webpack-dev-server';
+import { Configuration } from 'webpack';
 import merge from 'webpack-merge';
 import BaseConfig from './webpack.config.base';
 
 const Config: Configuration = merge(BaseConfig, {
 
-  mode: 'development',
+  mode: 'production',
 
-  devServer: {
-    historyApiFallback: true
+  output: {
+    filename: '[name].[hash].js'
   },
 
   module: {
@@ -35,7 +35,7 @@ const Config: Configuration = merge(BaseConfig, {
         }
     ]
   },
-  
+
 });
 
 export default Config;

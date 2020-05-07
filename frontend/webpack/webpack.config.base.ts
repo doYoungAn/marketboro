@@ -1,5 +1,6 @@
 import { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import Webpackbar from 'webpackbar';
 import path from 'path';
 
 const Config: Configuration = {
@@ -13,27 +14,6 @@ const Config: Configuration = {
             {
                 test: /\.ts(x*)$/,
                 loader: 'ts-loader'
-            },
-            {
-                test: /\.(s*)css$/,
-                loaders: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: {
-                                localIdentName: '[name]__[local]__[hash:base64:5]',
-                                mode: (resolvePath: string) => {
-                                    if (resolvePath.match(/node_modules/)) {
-                                        return 'global';
-                                    }
-                                    return 'local';
-                                }
-                            },
-                        }
-                    },
-                    'sass-loader'
-                ]
             }
         ]
     },
@@ -48,7 +28,8 @@ const Config: Configuration = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html'
-        })
+        }),
+        new Webpackbar()
     ]
 
 };
