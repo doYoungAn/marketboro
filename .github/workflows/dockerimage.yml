@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: create backend .env
-        run: 'echo "$BACKEND_ENV" | base64 --decode ./backend/.env' 
+        run: 'echo "$BACKEND_ENV" | base64 --decode > ./backend/.env' 
         env:
           BACKEND_ENV: ${{secrets.BACKEND_ENV}}
       - name: create backend .env
