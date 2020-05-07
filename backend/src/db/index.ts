@@ -15,3 +15,10 @@ export const connect = () => {
         })
     })
 }
+
+export enum CollectionName {
+    businesses  = 'businesses',
+    plans       = 'plans',
+    products    = 'products',
+    vendors     = 'vendors'
+}

@@ -1,11 +1,11 @@
 import { Collection } from 'mongodb';
-import { db } from './../db';
+import { db, CollectionName } from './../db';
 
 class Product {
 
     public static async getById(productId: number): Promise<IProduct> {
         try {
-            const collection: Collection<IProduct> = db.collection('products');
+            const collection: Collection<IProduct> = db.collection(CollectionName.products);
             const products: IProduct[] = await collection
                 .find({
                     "id": productId
@@ -20,7 +20,7 @@ class Product {
 
     public static async getByVendorId(vendorId: number): Promise<IProduct[]> {
         try {
-            const collection: Collection<IProduct> = db.collection('products');
+            const collection: Collection<IProduct> = db.collection(CollectionName.products);
             const products: IProduct[] = await collection
                 .find({})
                 .project({"_id": 0})

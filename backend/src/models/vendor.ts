@@ -1,10 +1,10 @@
-import { db } from './../db';
+import { db, CollectionName } from './../db';
 
 class Vendor {
 
     public static getAll(): Promise<IVendor[]> {
         return new Promise<IVendor[]>((resolve, reject) => {
-            const collection = db.collection('vendors');
+            const collection = db.collection(CollectionName.vendors);
             collection.aggregate<IVendor>([
                 {
                     "$lookup": {
@@ -34,7 +34,7 @@ class Vendor {
 
     public static getByBusinessIds(businessIds: number[]): Promise<IVendor[]> {
         return new Promise<IVendor[]>((resolve, reject) => {
-            const collection = db.collection('vendors');
+            const collection = db.collection(CollectionName.vendors);
             collection.aggregate<IVendor>([
                 {
                     "$match": {
