@@ -4,6 +4,7 @@ import utils from './../../../utils';
 
 export const Get = async (req: Request, res: Response) => {
     try {
+        console.log('in??')
         const { wait, businessIds = [] } = req.query;
         console.log(businessIds)
         if (wait === 'true') await utils.delay();

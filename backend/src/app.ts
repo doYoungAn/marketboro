@@ -1,4 +1,5 @@
-import express, { Express } from 'express';
+import express, { Express, Request, Response } from 'express';
+import path from 'path';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
@@ -36,9 +37,13 @@ class App {
         this._express.use(bodyParser.json());
         this._express.use(cors());
         this._express.use(morgan('dev'));
+        this._express.use('/', express.static('./../frontend/dist'));
         this._express.use('/api', api);
         const swaggerSpec = swaggerJSDoc(options);
         this._express.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+        this._express.get('*', (req: Request, res: Response) => {
+          res.sendFile(path.join(__dirname, './../../frontend/dist/index.html'));
+        });
     }
 
     public listening() {

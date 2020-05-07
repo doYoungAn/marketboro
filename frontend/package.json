@@ -4,13 +4,14 @@
   "description": "",
   "main": "",
   "scripts": {
-    "dev": "webpack-dev-server --config ./webpack/webpack.config.dev.ts",
-    "build": "webpack --config ./webpack/webpack.config.prod.ts"
+    "dev": "TS_NODE_PROJECT=\"webpack/tsconfig.webpack.json\" webpack-dev-server --config ./webpack/webpack.config.dev.ts",
+    "build": "TS_NODE_PROJECT=\"webpack/tsconfig.webpack.json\" webpack --config ./webpack/webpack.config.prod.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/loadable__component": "^5.10.0",
+    "@types/mini-css-extract-plugin": "^0.9.1",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
     "@types/react-router-dom": "^5.1.5",
@@ -18,8 +19,10 @@
     "@types/webpack-dev-server": "^3.10.1",
     "@types/webpack-merge": "^4.1.5",
     "@types/webpackbar": "^4.0.0",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.3",
     "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.0",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",

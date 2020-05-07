@@ -6,7 +6,9 @@ import path from 'path';
 const Config: Configuration = {
 
     entry: {
-        main: './src/main.tsx'
+        main: './src/main.tsx',
+        swiper: './node_modules/swiper/css/swiper.min.css',
+        uikit: './node_modules/uikit/dist/css/uikit.min.css'
     },
 
     module: {
