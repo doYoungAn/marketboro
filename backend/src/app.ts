@@ -23,7 +23,7 @@ class App {
 
     public listening(): Promise<void> {
         return new Promise((resolve, reject) => {
-            this._express.listen(80, (err) => {
+            this._express.listen(3000, (err) => {
                 err ? reject() : resolve()
             });
         });
