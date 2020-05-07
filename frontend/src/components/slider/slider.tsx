@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import Swiper from 'swiper';
 
 interface ISliderProps {}
@@ -6,10 +6,10 @@ interface ISliderProps {}
 const Slider: FC<ISliderProps> = (): JSX.Element => {
   
   const wrapper = useRef<HTMLDivElement>(null);
-  let swiper: Swiper;
+  const [swiper, setSwiper] = useState<Swiper>(null);
 
   useEffect(() => {
-    swiper = new Swiper(wrapper.current, {
+    const newSwiper = new Swiper(wrapper.current, {
       loop: true,
       speed: 400,
       autoHeight: true,
@@ -20,7 +20,8 @@ const Slider: FC<ISliderProps> = (): JSX.Element => {
         el: '.swiper-pagination',
         type: 'bullets'
       }
-    })
+    });
+    setSwiper(newSwiper);
   }, []);
 
   return (
