@@ -13,13 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - uses: actions/checkout@v2
-      # - name: Login to DockerHub
-      #   run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      # - name: Build the Docker image
-      #   run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USERNAME}}/marketboro
-      # - name: Push Docker image
-      #   run: docker push ${{secrets.DOCKER_USERNAME}}/marketboro
+      - uses: actions/checkout@v2
+      - name: Login to DockerHub
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USERNAME}}/marketboro
+      - name: Push Docker image
+        run: docker push ${{secrets.DOCKER_USERNAME}}/marketboro
 
       # - name: create pem file
       #   env:
@@ -35,7 +35,7 @@ jobs:
       - name: ls -a via ssh
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: ls -a
+          command: ls -a && cat docker-compose.yml
           host: ec2-13-124-99-233.ap-northeast-2.compute.amazonaws.com
           username: ubuntu
           # passphrase: ${{ secrets.PASSPHRASE }}
