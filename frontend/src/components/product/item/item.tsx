@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react';
-import Comma from '~/filters/comma';
+import Filter from '~/filters';
 
 interface IProductItemProps {
   onClickThumbnail: () => void;
@@ -27,7 +27,7 @@ const ProductItem: FC<IProductItemProps> = ({ onClickThumbnail, product }): JSX.
           <p className="uk-margin-remove">{product.vendor.name}</p>
           <p className="uk-margin-remove">[{product.vendor.name}] {product.name}</p>
           <p className="uk-margin-remove">국내산,5줄,1번망(15kg)/망단가/망</p>
-          <h3 className="uk-card-title">{Comma(product.salePrice)}원</h3>
+          <h3 className="uk-card-title">{Filter.comma(product.salePrice)}원</h3>
           <button className="uk-button uk-button-default uk-width-1-1" onClick={() => {addCart()}}>장바구니</button>
           {/* <p className="uk-margin-remove">동서산업</p>
           <p className="uk-margin-remove">[동서산업] 농산 양파(국내산,5줄,1번망) 15kg</p>

@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import Comma from '~/filters/comma';
+import Filter from '~/filters';
 
 interface ISummaryProps {
   product: IProduct;
@@ -29,7 +29,7 @@ const Summary: FC<ISummaryProps> = ({ product }): JSX.Element => {
             <div className="uk-card-body">
               <h3 className="uk-card-title">[{product ? product.vendor.name : void 0}] {product ? product.name : void 0}</h3>
               <p>1kg/봉단가/봉</p>
-              <p>{product ? Math.floor(product.price / product.salePrice * 10) : void 0}% {product ? Comma(product.salePrice) : ''}원</p>
+              <p>{product ? Filter.sale(product.price, product.salePrice) : void 0}% {product ? Filter.comma(product.salePrice) : ''}원</p>
               <hr/>
               <div data-uk-grid className="uk-margin-remove-top">
                 <div className="uk-width-1-4">배송유형</div>
@@ -50,7 +50,7 @@ const Summary: FC<ISummaryProps> = ({ product }): JSX.Element => {
                   <button className="uk-button uk-button-default">{quantity}</button>
                   <button className="uk-button uk-button-default" onClick={() => {setQuantity(quantity + 1)}}>+</button>
                 </div>
-                <span>{product ? Comma(product.salePrice * quantity) : void 0}원</span>
+                <span>{product ? Filter.comma(product.salePrice * quantity) : void 0}원</span>
               </div>
               <div className="uk-flex uk-flex-between uk-margin-top">
                 <button className="uk-button uk-button-default">
