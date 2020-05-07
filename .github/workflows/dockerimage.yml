@@ -14,8 +14,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: ls
-        run: ls
+      - name: create backend .env
+        run: 'echo "$BACKEND_ENV" | base64 --decode ./backend/.env' 
+        env:
+          BACKEND_ENV: ${{secret.BACKEND_ENV}}
+      - name: create backend .env
+        run: cd backend && ls -al
+        env:
+          BACKEND_ENV: ${{secret.BACKEND_ENV}}
 
       # - name: Login to DockerHub
       #   run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
