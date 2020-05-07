@@ -8,7 +8,7 @@ const startServer = async () => {
     try {
         await connect();
         await App.listening();
-        console.log('server listening 3000');
+        console.log('server listening 80');
     } catch(e) {
         console.log('server exit');
         process.exit(0);
