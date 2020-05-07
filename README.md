@@ -14,13 +14,29 @@
 7. 다시 docker-compose를 백그라운드로 실행합니다.
 
 ## backend
----
+
+### .env
+```
+MONGODB_USER=
+MONGODB_PASSWORD=
+MONGODB_URL=
+MONGODB_PROT=
+```
+서버 실행하지 전에 필수로 생성해야합니다.
+
+### 스크립트
+- `npm run dev` nodemon을 사용하여 개발서버를 띄웁니다.
+- `npm run build` .ts파일을 .js파일로 빌드합니다.
+- `npm run start` 빌드한 .js파일을 실행합니다.
 
 ## frontend
----
+
+### 스크립트
+- `npm run dev` webpack-dev-server을 사용하여 개발하기 위해 서버를 띄웁니다.
+- `npm run build` webpack을 사용하여 실제 html,css,js로 빌드합니다.
 
 ## setting-db
----
+
 ### .env
 ```
 MONGODB_USER=
