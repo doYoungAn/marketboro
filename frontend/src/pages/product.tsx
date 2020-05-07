@@ -22,7 +22,6 @@ const GoodPage: FC<IGoodPageProps> = ({ match }): JSX.Element => {
         const productId: number = parseInt(match.params.productId);
         if (isNaN(productId)) throw('invalid productId');
         const newProduct = await _api.getProductById(productId);
-        console.log(newProduct);
         setProduct(newProduct);
       } catch(e) {
 

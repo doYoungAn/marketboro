@@ -4,13 +4,15 @@ import App from './app';
 import { connect } from './db';
 
 
-App.listening().then(() => {
-    console.log('server listening 3000')
-    connect().then(() => {
-        console.log('pass?')
-    }).catch((err) => {
+const startServer = async () => {
+    try {
+        await connect();
+        await App.listening();
+        console.log('server listening 3000');
+    } catch(e) {
+        console.log('server exit');
+        process.exit(0);
+    }
+};
 
-    });
-}).catch(() => {
-
-});
+startServer();

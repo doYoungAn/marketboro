@@ -1,40 +1,27 @@
 import { Configuration } from 'webpack-dev-server';
 import merge from 'webpack-merge';
 import BaseConfig from './webpack.config.base';
+import CssLoader from './css-loader';
 
 const Config: Configuration = merge(BaseConfig, {
 
-  mode: 'development',
+    mode: 'development',
+    devServer: {
+        historyApiFallback: true
+    },
 
-  devServer: {
-    historyApiFallback: true
-  },
-
-  module: {
-    rules: [
-        {
-            test: /\.(s*)css$/,
-            loaders: [
-                'style-loader',
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: {
-                            localIdentName: '[name]__[local]__[hash:base64:5]',
-                            mode: (resolvePath: string) => {
-                                if (resolvePath.match(/node_modules/)) {
-                                    return 'global';
-                                }
-                                return 'local';
-                            }
-                        },
-                    }
-                },
-                'sass-loader'
-            ]
-        }
-    ]
-  },
+    module: {
+        rules: [
+            {
+                test: /\.(s*)css$/,
+                loaders: [
+                    'style-loader',
+                    CssLoader,
+                    'sass-loader'
+                ]
+            }
+        ]
+    },
   
 });
 

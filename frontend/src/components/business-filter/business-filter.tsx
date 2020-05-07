@@ -16,12 +16,10 @@ const BusinessFilter: FC<IBusinessFilterProps> = ({ selectBusinessIds, onToggleB
 
   const init = async () => {
     try {
-      console.log('isin?')
       const newBusinesses: IBusiness[] = await _api.getBusinesses();
-      console.log(newBusinesses)
       setBusinesses(newBusinesses);
     } catch(e) {
-      console.log('ee', e)
+      setBusinesses([]);
     }
   }
 

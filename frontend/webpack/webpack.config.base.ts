@@ -2,6 +2,7 @@ import webpack, { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import Webpackbar from 'webpackbar';
 import path from 'path';
+import PACKAGE from './../package.json';
 
 const Config: Configuration = {
 
@@ -34,7 +35,9 @@ const Config: Configuration = {
         new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
 		}),
-        new Webpackbar()
+        new Webpackbar({
+            name: PACKAGE.name
+        })
     ]
 
 };

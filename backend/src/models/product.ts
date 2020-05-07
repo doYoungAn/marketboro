@@ -75,7 +75,6 @@ class Product {
                     reject(err);
                 } else {
                     const products = await result.toArray();
-                    console.log(products);
                     resolve(products);
                 }
             });

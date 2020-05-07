@@ -9,18 +9,9 @@ interface IStoreProps {
 
 const Store: FC<IStoreProps> = ({ vendorId, vendors, onToggleVendor }): JSX.Element => {
   
-  // const [vendors, setVendors] = useState<IVendor[]>([]);
 
   useEffect(() => {
-    // (async () => {
-    //   try {
-    //     const newVendors = await _api.getVendors([]);
-    //     console.log(newVendors)
-    //     setVendors(newVendors);
-    //   } catch(e) {
-
-    //   }
-    // })();
+    
   }, []);
 
   return (
