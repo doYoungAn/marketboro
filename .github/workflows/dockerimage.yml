@@ -35,8 +35,7 @@ jobs:
       - name: ls -a via ssh
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: ls -a && cat docker-compose.yml && echo ${{ secrets.DOCKER_USERNAME }}
+          command: sudo docker-compose down && sudo docker-compose -d up
           host: ec2-13-124-99-233.ap-northeast-2.compute.amazonaws.com
           username: ubuntu
-          # passphrase: ${{ secrets.PASSPHRASE }}
           privateKey: ${{secrets.EC2_PEM}}
