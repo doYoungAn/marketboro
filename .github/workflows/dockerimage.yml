@@ -19,20 +19,17 @@ jobs:
         env:
           BACKEND_ENV: ${{secrets.BACKEND_ENV}}
 
-      - name: show env
-        run: cat ./backend/.env
+      - name: Login to DockerHub
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USERNAME}}/marketboro
+      - name: Push Docker image
+        run: docker push ${{secrets.DOCKER_USERNAME}}/marketboro
 
-      # - name: Login to DockerHub
-      #   run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      # - name: Build the Docker image
-      #   run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USERNAME}}/marketboro
-      # - name: Push Docker image
-      #   run: docker push ${{secrets.DOCKER_USERNAME}}/marketboro
-
-      # - name: docker-compose restart
-      #   uses: garygrossgarten/github-action-ssh@release
-      #   with:
-      #     command: sudo docker-compose down && sudo docker rmi jispoop/marketboro && sudo docker-compose up -d
-      #     host: ec2-13-124-99-233.ap-northeast-2.compute.amazonaws.com
-      #     username: ubuntu
-      #     privateKey: ${{secrets.EC2_PEM}}
+      - name: docker-compose restart
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: sudo docker-compose down && sudo docker rmi jispoop/marketboro && sudo docker-compose up -d
+          host: ec2-13-124-99-233.ap-northeast-2.compute.amazonaws.com
+          username: ubuntu
+          privateKey: ${{secrets.EC2_PEM}}
