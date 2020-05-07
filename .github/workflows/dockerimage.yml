@@ -29,4 +29,4 @@ jobs:
       - name: ls
         run: ls
       - name: access ec2
-        run: ssh -i -y "doyoung.pem" ubuntu@ec2-13-124-99-233.ap-northeast-2.compute.amazonaws.com
+        run: ssh -i "doyoung.pem" ubuntu@ec2-13-124-99-233.ap-northeast-2.compute.amazonaws.com
