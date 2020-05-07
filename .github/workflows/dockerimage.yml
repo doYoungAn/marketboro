@@ -24,5 +24,7 @@ jobs:
         env:
           PEM: ${{secrets.EC2_PEM}}
         run: 'echo "$PEM" > doyoung.pem'
+      - name: pem chmod
+        run: chmod 400 doyoung.pem
       - name: access ec2
         run: ssh -i "doyoung.pem" ubuntu@ec2-13-124-99-233.ap-northeast-2.compute.amazonaws.com
