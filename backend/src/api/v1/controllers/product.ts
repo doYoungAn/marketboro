@@ -21,8 +21,10 @@ export const Get = async (req: Request, res: Response) => {
 
 export const GetList = async (req: Request, res: Response) => {
     try {
+        const { vendorId } = req.query;
+        if (isNaN(parseInt(vendorId as string))) throw('invalid vendorId')
         await utils.delay();
-        const products = await Product.getByVendorId(1000);
+        const products = await Product.getByVendorId(parseInt(vendorId as string));
         if (req.query.vendorId === '1005') {
             const sendData = {
                 success: true,
