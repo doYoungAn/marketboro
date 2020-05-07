@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import Modal from 'fancy-react-modal';
 import _api from '~/services/api.service';
 import BaseLayout from '~/components/layout/base';
 import Slider from '~/components/slider';
@@ -8,6 +9,7 @@ import Location from '~/components/location';
 import Store from '~/components/store';
 import Loading from '~/components/base-ui/loading';
 import CustomError from '~/components/base-ui/error';
+import PromotionModal, { IPromotionModalProps, IPromotionModalResult } from '~/modals/promotion';
 
 interface IMainPageProps extends RouteComponentProps {}
 
@@ -17,6 +19,16 @@ const MainPage: FC<IMainPageProps> = ({ history }): JSX.Element => {
   const [vendors, setVendors] = useState<IVendor[]>([]);
   const [products, setProducts] = useState<IProduct[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        await Modal.open<IPromotionModalProps, IPromotionModalResult>(PromotionModal, {});
+      } catch(e) {
+
+      }
+    })();
+  }, []);
 
   useEffect(() => {
     getProducts();
