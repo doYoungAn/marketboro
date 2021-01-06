@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@loadable/component": "^5.12.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "fancy-react-modal": "^1.0.8",
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
